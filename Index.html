@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no"/>
+	<title>物流系统</title>
+	<meta name="keywords" content="物流系统" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/logistics.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(function () {
+			$('#language li').on('click', function () {
+				$('#language_value').html($(this).text());
+				$("#language").toggle();
+			});
+
+			$('.dropdown-toggle').click(function(){
+				var offset_left=$('.dropdown-toggle').offset().left;
+				$("#language").css("left",offset_left+"px");
+				$("#language").toggle();
+			});
+        
+
+		})
+	</script>
+</head>
+
+<body>
+	<!-- 头部 -->
+	<div class="header">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="javascript:void(0);">入仓登入(TW)</a></li>
+				<li><a href="Index.html">包裹查询(TW)</a></li>
+				<li><a href="PackagePut.html">包裹多件入库(KR)</a></li>
+				<li><a href="javascript:void(0);">包裹出库(KR)</a></li>
+				<li><a href="javascript:void(0);">存仓管理(TW)</a></li>
+			</ul>
+			<!-- 头部右侧 -->
+			<ul class="nav navbar-nav navbar-right  navbarrg">
+				<li class="languageli">
+					<button type="button" class="btn btn-default dropdown-toggle lanauage_btn" data-toggle="dropdown">
+						<span id="language_value"> TAIWAN</span>
+						<span class="language_caret"></span>
+					</button>
+				</li>
+				<li><span><p>SIAFF ID(王大明)</p></span>
+				</li>
+				<li><span><a href="" class="btns">设置</a></span></li>
+				<li><span><a href="Login.html" class="btns">登出</a></span></li>
+			</ul>
+		</nav>
+		<!-- 语言 -->
+		<ul class="dropdown-menu language_menu" id="language">
+			<li>
+				<a href="javascript:void(0);">中国</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">TAIWAN</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">美国</a>
+			</li>
+		</ul>
+	</div>
+	<div class="content_main">
+		<!-- 查询 -->
+		<div class="query">
+			<form class="navbar-form">
+				<div class="form-group">
+					<input type="text" placeholder="请输入编号" class="form-control ipt_query">
+				</div>
+
+				<button type="submit" class="btn btn-primary btn_ok">确认</button>
+			</form>
+		</div>
+
+		<!-- 查询结果 -->
+		<div class="container container_wrapper">
+			<div class="voicetext">
+				<h1>HBCA0091</h1>
+				<p class="lead">英属开曼群岛商上恩国际资讯股份有限公司（台湾分公司）</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

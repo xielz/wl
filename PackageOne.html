@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no"/>
+	<title>包裹入库</title>
+	<meta name="keywords" content="包裹入库" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/logistics.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(function () {
+			$('#client li').on('click', function () {
+				$('#client_value').html($(this).text());
+			});
+			$('#logistics li').on('click', function () {
+				$('#logistics_value').html($(this).text());
+			});
+			$('#commodity_type li').on('click', function () {
+				$('#commodity_type_value').html($(this).text());
+			});
+
+		})
+	</script>
+</head>
+
+<body>
+	<div class="package_main">
+		<form>
+			<div class="login_form package_form">
+				<div class="form_item">
+					<div class="form-group">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btntext" id="client_value">客户名称</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret newcaret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" id="client">
+								<li>
+									<a href="javascript:void(0);">客户A</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">客户B</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">客户C</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btntext" 
+							id="logistics_value">货运公司</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret newcaret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" id="logistics">
+								<li>
+									<a href="javascript:void(0);">德邦</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">顺风</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">申通</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="form_item">
+					<div class="form-group">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btntext" 
+							id="commodity_type_value">商品类型</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret newcaret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" id="commodity_type">
+								<li>
+									<a href="javascript:void(0);">德邦</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">顺风</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">申通</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="商品名称">
+					</div>
+				</div>
+				<div class="form_item">
+					<div class="form-group form-remark">
+						<textarea  id="treasury_note" class="form-control remark"  placeholder="入库备注-内部讯息"></textarea>
+					</div>
+
+					<div class="form-group form-remark">
+						<textarea  id="treasury_note" class="form-control remark"  placeholder="入库备注-对客户显示"></textarea>
+					</div>
+
+				</div>	
+			</div>
+			<!-- 包裹编号/备注 -->
+			<div class="login_form package_form serial_form">
+				<div class="form_item">
+					<div class="serial">
+						1
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+
+					<div class="form_add"><span class="add">+</span> </div>
+				</div>
+				<div class="form_item">
+					<div class="serial">
+						
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+					<div class="form_add"><span class="add">+</span> </div>
+				</div>
+				<div class="form_item">
+					<div class="serial">
+						
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+					<div class="form_add"><span class="add">+</span> </div>
+				</div>
+				<div class="form_item">
+					<div class="serial">
+						
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+					<div class="form_add"><span class="add">+</span> </div>
+				</div>
+				<div class="form_item">
+					<div class="serial">
+						
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+					<div class="form_add"><span class="add">+</span> </div>
+				</div>
+	<!-- 			<div class="form_item">
+					<div class="serial">
+						
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+					<div class="form_add"><span class="add">+</span> </div>
+				</div> -->
+
+			<!-- 		<div class="form_item">
+					<div class="serial">
+                    					
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹编号/输入横定">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="包裹备注">
+					</div>
+					<div class="form_add"><span class="add">+</span> </div>
+				</div> -->
+				<div class="clear package_btn">
+					<button type="submit" class="btn btn-primary ok">确认</button>
+					<button  class="btn btn-default cancel">取消</button>
+				</div>
+
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+</body>
+
+</html>

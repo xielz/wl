@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no"/>
+	<title>今日货件</title>
+	<meta name="keywords" content="今日货件" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> 
+	<link rel="stylesheet" href="css/logistics.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- 时间选择器核心脚本 -->
+	<script src="js/bootstrap-datetimepicker.min.js"></script> 
+	<script>
+		
+		$(function () {
+
+			$('.goods_item li').on('click', function () {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			$('#state li').on('click', function () {
+				$('#state_value').html($(this).text());
+			});
+			$('#member li').on('click', function () {
+				$('#member_value').html($(this).text());
+			});
+
+			$(".form_datetime").datetimepicker({
+				format:'yyyy-mm-dd hh:ii',
+            minuteStep:5,//分钟步长设置
+            autoclose:true,
+            language:'zh-CN',
+        });
+
+			var screen=window.screen.availWidth; //手机屏幕可用工作区宽度
+			$(".result_table").css("max-width",screen+"px");
+		})
+		$.fn.datetimepicker.dates['zh-CN'] = {
+			days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+			daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+			daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+			months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+			monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+			today: "今天",
+			suffix: [],
+			meridiem: ["上午", "下午"]
+		};
+		
+
+	</script>
+</head>
+
+<body>
+	<div class="package_main">
+
+		<div class="goods_item">
+			<ul>
+				<li class="active">今日取件</li>
+				<li>过往货件</li>
+			</ul>
+		</div>
+		<!-- 查询条件 -->
+		<div class="goods_form">
+			<form>
+				<div class="form_item">
+					<div class="form-group">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle state_btn" data-toggle="dropdown">
+								<span id="state_value">请选择状态</span>
+								<span class="language_caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="state">
+								<li>
+									<a href="javascript:void(0);">待付款</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">待发货</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">待收货</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="货物编号">
+					</div>
+
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="托运编号">
+					</div>
+
+					<div class="form-group">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle state_btn" data-toggle="dropdown">
+								<span id="member_value">请选择会员</span>
+								<span class="language_caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="member">
+								<li>
+									<a href="javascript:void(0);">白金会员</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">黄金会员</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">vip会员</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="form_item time_item">
+					<label class="tally">时间：</label>
+					<div class="form-group times  date form_datetime"">
+						<input type="text" id="begintime"   class="form-control" placeholder="开始时间">
+						<span class="add-on"><i class="icon-remove"></i></span>
+						<span class="add-on"><i class="icon-calendar"></i></span>
+
+					</div>
+					<label class="tally sec">-</label>
+
+					<div class="form-group times date form_datetime">
+						<input type="text" id="endtime" class="form-control" placeholder="结束时间">
+						<span class="add-on"><i class="icon-remove"></i></span>
+						<span class="add-on"><i class="icon-calendar"></i></span>
+					</div>
+
+					<div class="time_btn">
+						<button type="submit" class="btn btn-success  ok">搜索</button>
+						<button  class="btn btn-warning cancel">清空</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- 查询结果 -->
+		<div class="result_table">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>主单号</th>
+						<th>货物编号</th>
+						<th>货物时间</th>
+						<th>货物时间2</th>
+						<th>货物时间3</th>
+						<th>货物时间4</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>51</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>50</td>
+						<td>2212556</td>
+						<td>15245257857855</td>
+						<td>2019-12-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>49</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-30 15:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>51</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>51</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>51</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>51</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+					<tr>
+						<td>251</td>
+						<td>54512556</td>
+						<td>15245257857855</td>
+						<td>2019-11-12 16:01:12</td>
+						<td>2019</td>
+						<td>11-12</td>
+						<td>16:01:12</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+</div>
+</div>
+</body>
+
+</html>
